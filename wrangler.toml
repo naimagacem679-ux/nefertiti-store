@@ -1,0 +1,21 @@
+# Cloudflare Pages project configuration. NO secrets here — never put keys or passwords in this file.
+name = "nefertiti-store"
+compatibility_date = "2026-11-01"
+pages_build_output_dir = "public"
+
+# D1 database. Create it with:  wrangler d1 create nefertiti-db   then paste the printed id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "nefertiti-db"
+database_id = "REPLACE_WITH_ID_PRINTED_BY_WRANGLER"   # an identifier, not a secret
+
+# R2 bucket for images. Create it with:  wrangler r2 bucket create nefertiti-images
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "nefertiti-images"
+
+# Non-secret settings used in phase 2 to verify Cloudflare Access on the server.
+# [vars]
+# ACCESS_TEAM_DOMAIN = "YOUR-TEAM.cloudflareaccess.com"
+# ACCESS_AUD = "application audience tag shown in Zero Trust"
+# OWNER_EMAIL = "the single email allowed to manage the store"
